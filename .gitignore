@@ -1,0 +1,8 @@
+*.o
+*.exe
+out
+tools/out
+data
+results
+build
+.vscode
