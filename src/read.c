@@ -1,3 +1,6 @@
+// Copyright: 2023 Jakub Korytko
+// LINT_C_FILE
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -5,12 +8,16 @@
 #include "../headers/print.h"
 
 int * read(int number_of_elements, char *filename)  {
-
-    char message[6][100] = {"\nCannot open data file\n\n",
+    char message[6][100] = {
+        "\nCannot open data file\n\n",
         "Make sure that: \n\n",
         "1. The data file is in the same folder as the executable file\n",
         "2. The file is named \"data\", without the extension.\n\n",
-        "If the file does not exist, create it and save numbers in it from the range <-100,100> ",
+
+        // notice the lack of comma, it's intentional
+        "If the file does not exist, create it"
+        "and save numbers in it from the range <-100,100> ",
+
         "separated by space or enter and then run the program again\n"};
 
     FILE *data;

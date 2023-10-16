@@ -1,3 +1,5 @@
+// Copyright: 2023 Jakub Korytko
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -11,7 +13,6 @@ int number(int from, int to) {
 }
 
 int main(int argc, char *argv[]) {
-
     int number_of_elements = argc > 1 ? atoi(argv[1]) : 100000;
     char *filename = argc > 2 ? argv[2] : "data";
 

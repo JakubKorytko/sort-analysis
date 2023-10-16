@@ -1,8 +1,9 @@
+// Copyright: 2023 Jakub Korytko
+
 #include "../headers/algorithms.h"
 
 void insertion_sort(int *arr, int n) {
-    for (int i = n - 2; i>=0; i--) {
-
+    for ( int i = n - 2; i >= 0; i-- ) {
         int x = arr[i];
         int j = i + 1;
 
@@ -16,7 +17,7 @@ void insertion_sort(int *arr, int n) {
 }
 
 void selection_sort(int *arr, int n) {
-    for (int i = 0; i < n - 1; i++ ) {  
+    for ( int i = 0; i < n - 1; i++ ) {
         int min = i;
         for (int j = i+1; j < n; j++)
             if (arr[j] < arr[min])
@@ -44,15 +45,17 @@ void quick_sort(int *arr, int left, int right) {
     int pivot = arr[(left + right) / 2];
 
     while (1) {
-        while (arr[++i] < pivot);
+        while (arr[++i] < pivot) continue;
 
-        while (arr[--j] > pivot);
+        while (arr[--j] > pivot) continue;
 
         if (i <= j) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
-        } else break;
+        } else {
+            break;
+        }
     }
 
     if (left < j) {
@@ -67,7 +70,7 @@ void quick_sort(int *arr, int left, int right) {
 
 void shell_sort(int *arr, int n) {
     int h;
-    for (h = 1; h<n; h*=3+1);
+    for ( h = 1; h < n; h *= 3+1 ) continue;;
     h = h/9;
 
     if (!h) h++;
@@ -87,7 +90,6 @@ void shell_sort(int *arr, int n) {
 }
 
 void heap_sort(int *arr, int n) {
-
     // In a binary tree, node indices are numbered starting from 1
     // For this reason, 1 must be subtracted at each reference to the array
 
@@ -132,14 +134,27 @@ void heap_sort(int *arr, int n) {
             arr[m - 1] = temp;
 
             j = m;
-            k = j + j;  
+            k = j + j;
         }
     }
-
 }
 
 void quick_sort_wrapper(int *arr, int n) {quick_sort(arr, 0, n-1);}
 
-void (*sort[])(int *, int) = {insertion_sort, selection_sort, bubble_sort, quick_sort_wrapper, shell_sort, heap_sort};
+void (*sort[])(int *, int) = {
+    insertion_sort,
+    selection_sort,
+    bubble_sort,
+    quick_sort_wrapper,
+    shell_sort,
+    heap_sort
+};
 
-char *algorithms[] = {"Insertion", "Selection", "Bubble", "Quick", "Shell", "Heap"};
+char *algorithms[] = {
+    "Insertion",
+    "Selection",
+    "Bubble",
+    "Quick",
+    "Shell",
+    "Heap"
+};

@@ -1,9 +1,11 @@
+// Copyright: 2023 Jakub Korytko
+// LINT_C_FILE
+
 #include <time.h>
 
 #include "../headers/time.h"
 
 double measure_time(void (*function)(int *, int), int *arr, int n) {
-
     clock_t start, end;
 
     start = clock();

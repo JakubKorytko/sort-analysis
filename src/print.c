@@ -1,14 +1,14 @@
+// Copyright: 2023 Jakub Korytko
+
 #include <stdio.h>
 #include "../headers/print.h"
 
-void clear_stream(void)
-{
+void clear_stream(void) {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF) continue;
 }
 
-int get_single_char(void)
-{
+int get_single_char(void) {
     int input;
     input = getchar();
     if (input != '\n') {

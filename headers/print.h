@@ -1,3 +1,5 @@
+// Copyright: 2023 Jakub Korytko
+
 // ╔══════════════════════════╗
 // ║       Color codes        ║
 // ╠══════════════════════════╣
@@ -8,10 +10,8 @@
 // ║ 0 - reset  ║             ║
 // ╚════════════╩═════════════╝
 
-
-
-#ifndef PRINT_H
-#define PRINT_H
+#ifndef HEADERS_PRINT_H_
+#define HEADERS_PRINT_H_
 
 void clear_stream(void);
 
@@ -25,4 +25,4 @@ void print_tab(int *arr, int n);
 
 void pause(int clear);
 
-#endif // PRINT_H
+#endif  // HEADERS_PRINT_H_

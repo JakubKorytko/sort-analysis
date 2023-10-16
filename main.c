@@ -1,21 +1,21 @@
+// Copyright: 2023 Jakub Korytko
+// LINT_C_FILE
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "./headers/logic.h"
 #include "./headers/read.h"
 
-int main()
-{
-    do
-    {
+int main() {
+    do {
         int N = -1;
         char term;
 
         while (N < 0) {
-
             printf("\nArray size: ");
             int res = scanf("%d", &N, &term);
-            
+
             validator(res, term, N);
         }
 
@@ -27,7 +27,6 @@ int main()
 
         if (array)
             free(array);
-
     } while (1);
 
     return 0;
