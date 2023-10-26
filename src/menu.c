@@ -89,11 +89,10 @@ int menu(int *arr, int n, int show_tab) {
 
         char name[25];
 
-
         snprintf(name, sizeof(name), "%s", algorithms[i - 1]);
 
         if (i - 1 < 3) {
-            snprintf(name, sizeof(name), " ");
+            snprintf(name + strlen(name), sizeof(name), " ");
         }
 
         printf("%d. %ssort\n", i, name);
