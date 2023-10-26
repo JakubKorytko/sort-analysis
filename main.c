@@ -5,7 +5,8 @@
 #include <stdlib.h>
 
 #include "./headers/logic.h"
-#include "./headers/read.h"
+#include "./headers/utils/read.h"
+#include "./headers/interface/output.h"
 
 int main() {
     do {
@@ -13,7 +14,7 @@ int main() {
         char term;
 
         while (N < 0) {
-            printf("\nArray size: ");
+            display_array_size_message();
             int res = scanf("%d", &N, &term);
 
             validator(res, term, N);

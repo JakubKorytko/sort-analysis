@@ -10,8 +10,10 @@
 // ║ 0 - reset  ║             ║
 // ╚════════════╩═════════════╝
 
-#ifndef HEADERS_PRINT_H_
-#define HEADERS_PRINT_H_
+#ifndef HEADERS_UTILS_PRINT_H_
+#define HEADERS_UTILS_PRINT_H_
+
+#define ENABLE_COLORING 1
 
 typedef enum COLORS {
     BLACK = 30,
@@ -28,14 +30,8 @@ typedef enum COLORS {
 
 void clear_stream(void);
 
-int get_single_char(void);
-
 int color_printf(char *text, enum COLORS color);
 
 int num_printf(int number, enum COLORS color);
 
-void print_tab(int *arr, int n);
-
-void pause(int clear);
-
-#endif  // HEADERS_PRINT_H_
+#endif  // HEADERS_UTILS_PRINT_H_

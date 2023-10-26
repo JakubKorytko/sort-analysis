@@ -3,9 +3,17 @@ all: sort
 out_dir:
 	mkdir -p out/src
 	mkdir -p out/src/algorithms
+	mkdir -p out/src/utils
+	mkdir -p out/src/interface
 
-src = algorithms logic menu print read time
+src = algorithms logic
 paths = $(addprefix out/src/, $(addsuffix .o, $(src)))
+
+utils = print read time
+utils_paths = $(addprefix out/src/utils/, $(addsuffix .o, $(utils)))
+
+interface = input output
+interface_paths = $(addprefix out/src/interface/, $(addsuffix .o, $(interface)))
 
 algorithms = insertion_sort bubble_sort selection_sort shell_sort quick_sort heap_sort
 algorithms_paths = $(addprefix out/src/algorithms/, $(addsuffix .o, $(algorithms)))
@@ -23,14 +31,24 @@ $(algorithms): %: out_dir src/algorithms/%.c headers/algorithms/%.h
 	gcc -c src/algorithms/$@.c -o out/src/algorithms/$@.o
 	$(info Done!)
 
+$(utils): %: out_dir src/utils/%.c headers/utils/%.h
+	$(info Compiling $@.c...)
+	gcc -c src/utils/$@.c -o out/src/utils/$@.o
+	$(info Done!)
+
+$(interface): %: out_dir src/interface/%.c headers/interface/%.h
+	$(info Compiling $@.c...)
+	gcc -c src/interface/$@.c -o out/src/interface/$@.o
+	$(info Done!)
+
 main.o: out_dir main.c
 	$(info Compiling main.c...)
 	gcc -c main.c -o out/main.o
 	$(info Done!)
 	
-sort: $(algorithms) $(src) main.o
+sort: $(algorithms) $(src) $(utils) $(interface) main.o
 	$(info Linking...)
-	gcc $(algorithms_paths) $(paths) out/main.o -o sort
+	gcc $(algorithms_paths) $(paths) $(utils_paths) $(interface_paths) out/main.o -o sort
 	$(info Done!)
 
 generate:
@@ -39,11 +57,11 @@ generate:
 	gcc tools/generate.c -o tools/out/generate
 	$(info Done!)
 
-results: read algorithms print time
+results: $(algorithms) read algorithms print time
 	$(info Compiling results.c...)
 	mkdir -p tools/out
 	mkdir -p results
-	gcc $(tools_paths) tools/results.c -o tools/out/results
+	gcc $(tools_paths) $(algorithms_paths) tools/results.c -o tools/out/results
 	$(info Done!)
 
 clean:

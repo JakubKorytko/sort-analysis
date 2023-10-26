@@ -7,12 +7,32 @@
 #include <string.h>
 
 #include "../headers/algorithms.h"
-#include "../headers/read.h"
-#include "../headers/time.h"
+#include "../headers/utils/read.h"
+#include "../headers/utils/time.h"
 
 #define RANGE_MIN -100
 #define RANGE_MAX 100
 #define FILENAME "data"
+
+void remove_spaces_from_string(char *str) {
+    int count = 0;
+    for (int i = 0; str[i]; i++)
+        if (str[i] != ' ')
+            str[count++] = str[i];
+    str[count] = '\0';
+}
+
+char * algorithm_name_without_spaces(char *algorithm_name) {
+    char *_algorithm_name = (char *)malloc(
+        (strlen(algorithm_name) + 1) * sizeof(char));
+
+    snprintf(_algorithm_name, strlen(algorithm_name) + 1,
+    "%s", algorithm_name);
+
+    remove_spaces_from_string(_algorithm_name);
+
+    return _algorithm_name;
+}
 
 int *test1(int N) {
     int *array = (int *)malloc(N * sizeof(int));
@@ -81,33 +101,33 @@ int main(int argc, char *argv[]) {
         if (!checked[i])
             continue;
 
-        char *results_filename = malloc(40 * sizeof(char));
+        char *algorithm_name = algorithm_name_without_spaces(algorithms[i]);
 
-        snprintf(results_filename, sizeof(results_filename),
-        "results/%s.txt", algorithms[i]);
+        size_t results_filename_size = strlen(algorithm_name) + 13;
 
-        printf("%s", results_filename);
+        char *results_filename = (char *)malloc(
+            results_filename_size * sizeof(char));
+
+        snprintf(results_filename, results_filename_size * sizeof(char),
+        "results/%s.txt", algorithm_name);
 
         results = fopen(results_filename, "w");
 
         if (results == NULL) {
             printf("Failed to open %s file\n", results_filename);
+
+            if (results_filename)
+                free(results_filename);
+
+            if (algorithm_name)
+                free(algorithm_name);
+
             exit(1);
         }
 
-        char name[25];
+        printf("Running \"%s\"...", algorithms[i]);
 
-        snprintf(name, sizeof(name), "%s", algorithms[i]);
-
-        if (i < 3) {
-            snprintf(name, sizeof(name), " ");
-        }
-
-        snprintf(name, sizeof(name), "sort");
-
-        printf("Running \"%s\"...", name);
-
-        fprintf(results, ">> %ssort <<\n\n", name);
+        fprintf(results, ">> %ssort <<\n\n", algorithms[i]);
 
 
         for (int k = 0; k < 3; k++) {
@@ -148,6 +168,9 @@ int main(int argc, char *argv[]) {
 
         if (results_filename)
             free(results_filename);
+
+        if (algorithm_name)
+            free(algorithm_name);
     }
 
     return 0;
