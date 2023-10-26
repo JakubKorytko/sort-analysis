@@ -3,19 +3,12 @@
 #ifndef HEADERS_ALGORITHMS_H_
 #define HEADERS_ALGORITHMS_H_
 
-void insertion_sort(int *arr, int n);
-
-void selection_sort(int *arr, int n);
-
-void bubble_sort(int *arr, int n);
-
-void quick_sort(int *arr, int left, int right);
-
-void shell_sort(int *arr, int n);
-
-void heap_sort(int *arr, int n);
-
-void quick_sort_wrapper(int *arr, int n);
+#include "algorithms/selection_sort.h"
+#include "algorithms/insertion_sort.h"
+#include "algorithms/bubble_sort.h"
+#include "algorithms/quick_sort.h"
+#include "algorithms/shell_sort.h"
+#include "algorithms/heap_sort.h"
 
 extern void (*sort[])(int *, int);
 

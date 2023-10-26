@@ -2,11 +2,15 @@ all: sort
 
 out_dir:
 	mkdir -p out/src
+	mkdir -p out/src/algorithms
 
 src = algorithms logic menu print read time
-tools_src = algorithms read time print
-
 paths = $(addprefix out/src/, $(addsuffix .o, $(src)))
+
+algorithms = insertion_sort bubble_sort selection_sort shell_sort quick_sort heap_sort
+algorithms_paths = $(addprefix out/src/algorithms/, $(addsuffix .o, $(algorithms)))
+
+tools_src = algorithms read time print
 tools_paths = $(addprefix out/src/, $(addsuffix .o, $(tools_src)))
 
 $(src): %: out_dir src/%.c headers/%.h
@@ -14,14 +18,19 @@ $(src): %: out_dir src/%.c headers/%.h
 	gcc -c src/$@.c -o out/src/$@.o
 	$(info Done!)
 
+$(algorithms): %: out_dir src/algorithms/%.c headers/algorithms/%.h
+	$(info Compiling $@.c...)
+	gcc -c src/algorithms/$@.c -o out/src/algorithms/$@.o
+	$(info Done!)
+
 main.o: out_dir main.c
 	$(info Compiling main.c...)
 	gcc -c main.c -o out/main.o
 	$(info Done!)
 	
-sort: $(src) main.o
+sort: $(algorithms) $(src) main.o
 	$(info Linking...)
-	gcc $(paths) out/main.o -o sort
+	gcc $(algorithms_paths) $(paths) out/main.o -o sort
 	$(info Done!)
 
 generate:
