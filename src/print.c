@@ -19,14 +19,14 @@ int get_single_char(void) {
     return input;
 }
 
-int color_printf(char *text, int color) {
+int color_printf(char *text, enum COLORS color) {
     if (!ENABLE_COLORING)
         return printf("%s", text);
 
     printf("\033[0;%dm%s\033[0m", color, text);
 }
 
-int num_printf(int number, int color) {
+int num_printf(int number, enum COLORS color) {
     if (!ENABLE_COLORING)
         return printf("%d", number);
 
@@ -34,18 +34,18 @@ int num_printf(int number, int color) {
 }
 
 void print_tab(int *arr, int n) {
-    color_printf("[", 33);
+    color_printf("[", YELLOW);
     for (int i = 0; i < n; i++) {
-        num_printf(arr[i], 33);
+        num_printf(arr[i], YELLOW);
         if (i < n - 1) {
-            color_printf(", ", 33);
+            color_printf(", ", YELLOW);
         }
     }
-    color_printf("]", 33);
+    color_printf("]", YELLOW);
 }
 
 void pause(int clear) {
-    color_printf("\nPress ENTER to continue...", 36);
+    color_printf("\nPress ENTER to continue...", CYAN);
     if (clear)
         clear_stream();
     get_single_char();

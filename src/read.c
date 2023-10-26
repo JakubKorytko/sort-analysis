@@ -24,10 +24,10 @@ int * read(int number_of_elements, char *filename)  {
     data = fopen(filename, "r");
 
     if (data == NULL) {
-        color_printf(message[0], 31);
+        color_printf(message[0], RED);
         printf("%s", message[1]);
-        color_printf(message[2], 33);
-        color_printf(message[3], 33);
+        color_printf(message[2], YELLOW);
+        color_printf(message[3], YELLOW);
         printf("%s%s", message[4], message[5]);
         exit(1);
     }

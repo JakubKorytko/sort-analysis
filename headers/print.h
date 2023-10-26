@@ -13,13 +13,26 @@
 #ifndef HEADERS_PRINT_H_
 #define HEADERS_PRINT_H_
 
+typedef enum COLORS {
+    BLACK = 30,
+    RED,
+    GREEN,
+    YELLOW,
+    BLUE,
+    PURPLE,
+    CYAN,
+    WHITE,
+
+    RESET = 0
+} COLORS;
+
 void clear_stream(void);
 
 int get_single_char(void);
 
-int color_printf(char *text, int color);
+int color_printf(char *text, enum COLORS color);
 
-int num_printf(int number, int color);
+int num_printf(int number, enum COLORS color);
 
 void print_tab(int *arr, int n);
 

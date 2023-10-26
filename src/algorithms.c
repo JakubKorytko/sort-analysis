@@ -12,10 +12,10 @@ void (*sort[])(int *, int) = {
 };
 
 char *algorithms[] = {
-    "Insertion",
-    "Selection",
-    "Bubble",
-    "Quick",
-    "Shell",
-    "Heap"
+    "Insertion sort",
+    "Selection sort",
+    "Bubble sort",
+    "Quicksort",
+    "Shellsort",
+    "Heapsort"
 };
