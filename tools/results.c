@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "../headers/algorithms.h"
+#include "../headers/interface/output.h"
 #include "../headers/utils/read.h"
 #include "../headers/utils/time.h"
 
