@@ -1,75 +1,62 @@
-all: sort
+all: main
+
+src_files = algorithms logic
+utils_files = utils/print utils/read utils/time
+interface_files = interface/input interface/output
+
+# we use foreach for the sake of readability
+algorithms = insertion_sort bubble_sort selection_sort shell_sort quick_sort heap_sort
+algorithms_files = $(foreach file, $(algorithms), algorithms/$(file))
+
+paths = $(src_files) $(utils_files) $(interface_files) $(algorithms_files)
+out_paths = $(foreach path, $(paths), out/src/$(path).o)
+
+commands = main generate results 
 
 out_dir:
-	mkdir -p out/src
-	mkdir -p out/src/algorithms
-	mkdir -p out/src/utils
-	mkdir -p out/src/interface
+	@mkdir -p out/src/
+	@mkdir -p out/src/utils/
+	@mkdir -p out/src/interface/
+	@mkdir -p out/src/algorithms/
 
-src = algorithms logic
-paths = $(addprefix out/src/, $(addsuffix .o, $(src)))
+results_dir:
+	@mkdir -p results
 
-utils = print read time
-utils_paths = $(addprefix out/src/utils/, $(addsuffix .o, $(utils)))
+tools_dir:
+	@mkdir -p tools/out
 
-interface = input output
-interface_paths = $(addprefix out/src/interface/, $(addsuffix .o, $(interface)))
-
-algorithms = insertion_sort bubble_sort selection_sort shell_sort quick_sort heap_sort
-algorithms_paths = $(addprefix out/src/algorithms/, $(addsuffix .o, $(algorithms)))
-
-tools_src = algorithms read time print
-tools_paths = $(addprefix out/src/, $(addsuffix .o, $(tools_src)))
-
-$(src): %: out_dir src/%.c headers/%.h
+$(paths): %: out_dir src/%.c headers/%.h
 	$(info Compiling $@.c...)
-	gcc -c src/$@.c -o out/src/$@.o
+	@gcc -c src/$@.c -o out/src/$@.o
 	$(info Done!)
 
-$(algorithms): %: out_dir src/algorithms/%.c headers/algorithms/%.h
-	$(info Compiling $@.c...)
-	gcc -c src/algorithms/$@.c -o out/src/algorithms/$@.o
-	$(info Done!)
+### Available commands ###
 
-$(utils): %: out_dir src/utils/%.c headers/utils/%.h
-	$(info Compiling $@.c...)
-	gcc -c src/utils/$@.c -o out/src/utils/$@.o
-	$(info Done!)
-
-$(interface): %: out_dir src/interface/%.c headers/interface/%.h
-	$(info Compiling $@.c...)
-	gcc -c src/interface/$@.c -o out/src/interface/$@.o
-	$(info Done!)
-
-main.o: out_dir main.c
+main: $(paths) out_dir main.c
 	$(info Compiling main.c...)
-	gcc -c main.c -o out/main.o
+	@gcc -c main.c -o out/main.o
 	$(info Done!)
-	
-sort: $(algorithms) $(src) $(utils) $(interface) main.o
+
 	$(info Linking...)
-	gcc $(algorithms_paths) $(paths) $(utils_paths) $(interface_paths) out/main.o -o sort
+	@gcc $(out_paths) out/main.o -o sort
 	$(info Done!)
 
-generate:
+generate: tools_dir
 	$(info Compiling generate.c...)
-	mkdir -p tools/out
-	gcc tools/generate.c -o tools/out/generate
+	@gcc tools/generate.c -o tools/out/generate
 	$(info Done!)
 
-results: $(algorithms) read algorithms print time
+results: tools_dir results_dir $(paths)
 	$(info Compiling results.c...)
-	mkdir -p tools/out
-	mkdir -p results
-	gcc $(tools_paths) $(algorithms_paths) tools/results.c -o tools/out/results
+	@gcc $(out_paths) tools/results.c -o tools/out/results
 	$(info Done!)
 
 clean:
 	$(info Cleaning up...)
-	rm -f *.o
-	rm -f *.exe
-	rm -rf out
-	rm -rf tools/out
-	rm -f data
-	rm -rf results
-	rm -rf build
+	@rm -f *.o
+	@rm -f sort
+	@rm -rf out
+	@rm -rf tools/out
+	@rm -f data
+	@rm -rf results
+	@rm -rf build
