@@ -3,7 +3,7 @@
 
 #include <time.h>
 
-#include "../../headers/utils/time.h"
+#include "utils/time.h"
 
 double measure_time(void (*function)(int *, int), int *arr, int n) {
     clock_t start, end;

@@ -1,12 +1,12 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/interface/output.h"
+#include "interface/output.h"
 
 #include <stdio.h>
 
-#include "../../headers/interface/input.h"
-#include "../../headers/algorithms.h"
-#include "../../headers/utils/print.h"
+#include "interface/input.h"
+#include "./algorithms.h"
+#include "utils/print.h"
 
 
 void pause(int clear) {

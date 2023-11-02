@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/algorithms/quick_sort.h"
+#include "algorithms/quick_sort.h"
 
 void _quick_sort(int *arr, int left, int right) {
     int i = left - 1, j = right + 1;

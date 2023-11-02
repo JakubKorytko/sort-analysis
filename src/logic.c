@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../headers/logic.h"
+#include "./logic.h"
 
-#include "../headers/interface/output.h"
-#include "../headers/utils/read.h"
-#include "../headers/interface/input.h"
+#include "interface/output.h"
+#include "utils/read.h"
+#include "interface/input.h"
 
 void validator(int res, char term, int N) {
     if ( (res == 2 && term == '\n') || N < 0 ) {

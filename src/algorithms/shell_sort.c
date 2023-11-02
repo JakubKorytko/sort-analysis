@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/algorithms/shell_sort.h"
+#include "algorithms/shell_sort.h"
 
 void shell_sort(int *arr, int n) {
     int h;

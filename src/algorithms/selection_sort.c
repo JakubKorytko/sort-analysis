@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/algorithms/selection_sort.h"
+#include "algorithms/selection_sort.h"
 
 void selection_sort(int *arr, int n) {
     for ( int i = 0; i < n - 1; i++ ) {

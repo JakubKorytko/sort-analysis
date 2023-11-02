@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#include "../../headers/utils/print.h"
+#include "utils/print.h"
 
 void clear_stream(void) {
     int c;

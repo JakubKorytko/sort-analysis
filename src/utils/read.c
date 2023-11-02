@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../headers/utils/read.h"
+#include "utils/read.h"
 
-#include "../../headers/interface/output.h"
+#include "interface/output.h"
 
 int * read(int number_of_elements, char *filename)  {
     FILE *data;

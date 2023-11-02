@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/algorithms/heap_sort.h"
+#include "algorithms/heap_sort.h"
 
 void heap_sort(int *arr, int n) {
     // In a binary tree, node indices are numbered starting from 1

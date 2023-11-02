@@ -6,10 +6,10 @@
 #include <math.h>
 #include <string.h>
 
-#include "../headers/algorithms.h"
-#include "../headers/interface/output.h"
-#include "../headers/utils/read.h"
-#include "../headers/utils/time.h"
+#include "./algorithms.h"
+#include "interface/output.h"
+#include "utils/read.h"
+#include "utils/time.h"
 
 #define RANGE_MIN -100
 #define RANGE_MAX 100

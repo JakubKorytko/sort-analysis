@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../../headers/algorithms/insertion_sort.h"
+#include "algorithms/insertion_sort.h"
 
 void insertion_sort(int *arr, int n) {
     for ( int i = n - 2; i >= 0; i-- ) {

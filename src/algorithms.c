@@ -1,6 +1,6 @@
 // Copyright: 2023 Jakub Korytko
 
-#include "../headers/algorithms.h"
+#include "./algorithms.h"
 
 void (*sort[])(int *, int) = {
     insertion_sort,

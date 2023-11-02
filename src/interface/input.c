@@ -4,12 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../../headers/interface/input.h"
+#include "interface/input.h"
 
-#include "../../headers/utils/print.h"
-#include "../../headers/utils/time.h"
-#include "../../headers/interface/output.h"
-#include "../../headers/algorithms.h"
+#include "utils/print.h"
+#include "utils/time.h"
+#include "interface/output.h"
+#include "./algorithms.h"
 
 int get_single_char(void) {
     int input;
