@@ -27,7 +27,6 @@ void print_algorithm_selection(int choice) {
 }
 
 void print_menu(int *arr, int n, int show_tab) {
-    
     show_welcome_message(arr, n, show_tab);
 
     color_printf("\nSelect a sorting algorithm:\n", BLUE);
