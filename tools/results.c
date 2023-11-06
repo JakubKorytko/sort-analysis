@@ -152,6 +152,8 @@ void process_command_arguments(int argc, char *argv[]) {
     for (int i = 0; i < 6; i++) {
         checked[i] = argc > 3 ? 0: 1;
     }
+
+    generate_sort_target_array(argc, argv);
 }
 
 void write_sort_result(
