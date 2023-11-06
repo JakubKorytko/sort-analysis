@@ -1,3 +1,5 @@
+INC=-I./headers
+
 all: main
 
 src_files = algorithms logic
@@ -27,28 +29,28 @@ tools_dir:
 
 $(paths): %: out_dir src/%.c headers/%.h
 	$(info Compiling $@.c...)
-	@gcc -c src/$@.c -o out/src/$@.o
+	@gcc $(INC) -c src/$@.c -o out/src/$@.o
 	$(info Done!)
 
 ### Available commands ###
 
 main: $(paths) out_dir main.c
 	$(info Compiling main.c...)
-	@gcc -c main.c -o out/main.o
+	@gcc $(INC) -c main.c -o out/main.o
 	$(info Done!)
 
 	$(info Linking...)
-	@gcc $(out_paths) out/main.o -o sort
+	@gcc $(INC) $(out_paths) out/main.o -o sort
 	$(info Done!)
 
 generate: tools_dir
 	$(info Compiling generate.c...)
-	@gcc tools/generate.c -o tools/out/generate
+	@gcc $(INC) tools/generate.c -o tools/out/generate
 	$(info Done!)
 
 results: tools_dir results_dir $(paths)
 	$(info Compiling results.c...)
-	@gcc $(out_paths) tools/results.c -o tools/out/results
+	@gcc $(INC) $(out_paths) tools/results.c -o tools/out/results
 	$(info Done!)
 
 clean:
