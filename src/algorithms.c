@@ -2,20 +2,8 @@
 
 #include "./algorithms.h"
 
-void (*sort[])(int *, int) = {
-    insertion_sort,
-    selection_sort,
-    bubble_sort,
-    quick_sort,
-    shell_sort,
-    heap_sort
-};
+void (*sort[])(int *, int) = {insertion_sort, selection_sort, bubble_sort,
+                              quick_sort,     shell_sort,     heap_sort};
 
-char *algorithms[] = {
-    "Insertion sort",
-    "Selection sort",
-    "Bubble sort",
-    "Quicksort",
-    "Shellsort",
-    "Heapsort"
-};
+char *algorithms[] = {"Insertion sort", "Selection sort", "Bubble sort",
+                      "Quicksort",      "Shellsort",      "Heapsort"};

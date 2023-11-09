@@ -16,16 +16,16 @@
 #define ENABLE_COLORING 1
 
 typedef enum COLORS {
-    BLACK = 30,
-    RED,
-    GREEN,
-    YELLOW,
-    BLUE,
-    PURPLE,
-    CYAN,
-    WHITE,
+  BLACK = 30,
+  RED,
+  GREEN,
+  YELLOW,
+  BLUE,
+  PURPLE,
+  CYAN,
+  WHITE,
 
-    RESET = 0
+  RESET = 0
 } COLORS;
 
 void clear_stream(void);
