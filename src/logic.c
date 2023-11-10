@@ -9,10 +9,12 @@
 #include "interface/output.h"
 #include "utils/read.h"
 
-void validator(int res, char term, int N) {
-  if ((res == 2 && term == '\n') || N < 0) {
+void validator(int res, int N) {
+  if (res == 2 || N < 0) {
     negative_array_size_message();
   }
+
+  char term;
 
   while ((term = getchar()) != '\n' && term != EOF) {
   }

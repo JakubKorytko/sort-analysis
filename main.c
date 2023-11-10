@@ -11,13 +11,12 @@
 int main() {
   while (1) {
     int N = -1;
-    char term;
 
     while (N < 0) {
       display_array_size_message();
-      int res = scanf("%d", &N, &term);
+      int res = scanf("%d", &N);
 
-      validator(res, term, N);
+      validator(res, N);
     }
 
     int *array = (int *)malloc(N * sizeof(int));
