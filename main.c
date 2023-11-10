@@ -9,7 +9,7 @@
 #include "./headers/utils/read.h"
 
 int main() {
-  do {
+  while (1) {
     int N = -1;
     char term;
 
@@ -26,7 +26,7 @@ int main() {
     if (main_loop(array, N) == 0) break;
 
     if (array) free(array);
-  } while (1);
+  }
 
   return 0;
 }
