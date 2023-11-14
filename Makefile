@@ -1,6 +1,6 @@
 INC=-I./headers
 
-all: sort
+all: generate results sort
 
 src_files = algorithms logic
 utils_files = utils/print utils/read utils/time
