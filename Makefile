@@ -1,6 +1,6 @@
 INC=-I./headers
 
-all: main
+all: sort
 
 src_files = algorithms logic
 utils_files = utils/print utils/read utils/time
@@ -34,7 +34,7 @@ $(paths): %: out_dir src/%.c headers/%.h
 
 ### Available commands ###
 
-main: $(paths) out_dir main.c
+sort: $(paths) out_dir main.c
 	$(info Compiling main.c...)
 	@gcc $(INC) -c main.c -lm -o out/main.o
 	$(info Done!)
