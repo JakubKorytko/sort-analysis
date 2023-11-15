@@ -43,9 +43,10 @@ int run_algorithm(int choice, int *arr, int n, int clear) {
   // Algorithm options
   if (choice > 0 && choice < 7) {
     print_algorithm_selection(choice);
-    print_tab(arr, n);
 
     double time = get_sorting_time(choice, arr, n);
+
+    print_tab(arr, n);
     display_sorting_time(time, clear);
 
     return choice;
