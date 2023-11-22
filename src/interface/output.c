@@ -108,7 +108,7 @@ void show_welcome_message(int *arr, int n, int show_tab) {
 }
 
 void display_end_of_program_message() {
-  color_printf("\n--- End of program ---\n", RED);
+  color_printf("\n--- End of the program ---\n", RED);
 }
 
 void display_program_restart_message() {
