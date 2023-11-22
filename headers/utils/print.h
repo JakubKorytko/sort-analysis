@@ -13,8 +13,6 @@
 #ifndef HEADERS_UTILS_PRINT_H_
 #define HEADERS_UTILS_PRINT_H_
 
-#define ENABLE_COLORING 1
-
 typedef enum COLORS {
   BLACK = 30,
   RED,
