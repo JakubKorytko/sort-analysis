@@ -6,5 +6,4 @@ data
 results
 build
 .vscode/*
-!.vscode/settings.json
 .vs
