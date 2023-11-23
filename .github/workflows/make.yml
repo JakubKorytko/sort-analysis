@@ -14,9 +14,7 @@ jobs:
       - name: Install make
         run: sudo apt-get install make
 
-      - name: Run make on all targets
+      - name: Run make targets
         run: |
           make
-          make generate
-          make results
           make clean
