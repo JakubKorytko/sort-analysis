@@ -7,17 +7,17 @@
 #include <string.h>
 
 int is_coloring_enabled() {
-    char * enable_coloring = getenv("ENABLE_COLORING");
+  char *enable_coloring = getenv("ENABLE_COLORING");
 
-    if (enable_coloring == NULL) {
-        return 1;
-    }
-
-    if (strcmp(enable_coloring, "false") == 0) {
-        return 0;
-    }
-
+  if (enable_coloring == NULL) {
     return 1;
+  }
+
+  if (strcmp(enable_coloring, "false") == 0) {
+    return 0;
+  }
+
+  return 1;
 }
 
 void clear_stream(void) {
