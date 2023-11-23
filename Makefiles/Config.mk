@@ -6,7 +6,7 @@ src_files = algorithms logic
 utils_files = utils/print utils/read utils/time
 interface_files = interface/input interface/output
 
-commands = sort generate results
+commands = generate results sort
 
 out_dir_paths = out/ out/src/ out/src/utils/ out/src/interface/ out/src/algorithms/
 results_dir_path = results/
