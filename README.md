@@ -4,8 +4,8 @@
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![Run Super-Linter](https://github.com/JakubKorytko/sort-analysis/actions/workflows/super-linter.yml/badge.svg)](https://github.com/JakubKorytko/sort-analysis/actions/workflows/super-linter.yml)
-[![Run make targets to check for errors](https://github.com/JakubKorytko/sort-analysis/actions/workflows/make.yml/badge.svg)](https://github.com/JakubKorytko/sort-analysis/actions/workflows/make.yml)
+[![Run Super-Linter](https://github.com/JakubKorytko/sort-analysis/actions/workflows/super-linter.yml/badge.svg?branch=0.1.0)](https://github.com/JakubKorytko/sort-analysis/actions/workflows/super-linter.yml?branch=0.1.0)
+[![Run make targets to check for errors](https://github.com/JakubKorytko/sort-analysis/actions/workflows/make.yml/badge.svg?branch=0.1.0)](https://github.com/JakubKorytko/sort-analysis/actions/workflows/make.yml?branch=0.1.0)
 
 ## Table of Contents
 
